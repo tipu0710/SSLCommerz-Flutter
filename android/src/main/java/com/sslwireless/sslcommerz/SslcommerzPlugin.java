@@ -73,13 +73,17 @@ public class SslcommerzPlugin implements FlutterPlugin, MethodCallHandler, Activ
 
                 @Override
                 public void transactionFail(String s) {
+                    Log.d("TAG", "onMethodCallFail: " + call.arguments.toString());
                     Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
-                    result.success(null);
+                    result.error("404", "Transaction failed", null);
                 }
 
                 @Override
                 public void merchantValidationError(String s) {
                     showErrorAlert("Error", s);
+                    Log.d("TAG", "onMethodCall: " +
+                            "merchantValidationError");
+                    result.error("404", "Transaction failed", null);
                 }
             });
         } else {
