@@ -74,6 +74,7 @@ public class SslcommerzPlugin implements FlutterPlugin, MethodCallHandler, Activ
                 @Override
                 public void transactionFail(String s) {
                     Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+                    result.success(null);
                 }
 
                 @Override

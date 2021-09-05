@@ -67,7 +67,9 @@ class Sslcommerz {
     try {
       var response =
           await _channel.invokeMethod('initiateSSLCommerz', jsonEncode(this));
-      return SSLCTransactionInfoModel.fromJson(jsonDecode(response));
+      return response != null
+          ? SSLCTransactionInfoModel.fromJson(jsonDecode(response))
+          : null;
     } catch (e) {
       print("===== Failed ======");
       print(e.toString());
